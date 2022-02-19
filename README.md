@@ -33,15 +33,12 @@ end
 ```elixir
 
 def project do
-  [
-    #...
-	releases: [
-	  release_name: [
-	    #release_settings
-		config_providers: [
-		  {Provider, "config_file_path"}
-	    ]
-	]
+  releases: [
+    demo: [
+      config_providers: [
+        {SelfProvider, {:system, "RELEASE_ROOT", "/extra_config.exs"}}
+      ]
+    ]
   ]
 end
 ```
