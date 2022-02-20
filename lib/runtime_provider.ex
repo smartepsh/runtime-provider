@@ -28,7 +28,7 @@ defmodule RuntimeProvider do
   end
 
   defmacro __before_compile__(_env) do
-    quote generated: true do
+    quote do
       @behaviour Config.Provider
 
       @impl true
@@ -38,7 +38,7 @@ defmodule RuntimeProvider do
       def load(config, path) do
         if File.exists?(path) do
           content = read_file!(path)
-          file_config = RuntimeProvider.Parser.parse(content, @definitions)
+          file_config = RuntimeProvider.Parser.parse(content, Enum.reverse(@definitions))
           Config.Reader.merge(config, file_config)
         else
           IO.puts(

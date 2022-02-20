@@ -18,7 +18,8 @@ end
 
 ## Usage
 
-1. define provider module
+1. Define provider module with definitions.
+An example of how to define a configuration is in [ThisTestFile](test/runtime_provider/definition_test.exs)
 
 ```elixir
 defmodule Provider do
@@ -28,7 +29,7 @@ defmodule Provider do
 end
 ```
 
-2. in `mix.exs`
+2. In `mix.exs`
 
 ```elixir
 
