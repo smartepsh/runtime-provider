@@ -36,6 +36,9 @@ defmodule RuntimeProvider.Definition do
       # options for the value, not for the definition
       config :app_name, :key, {"value", required?: true}
 
+      # not support the keyword in list
+      config :app_name, :key, ["value", {sub_key, sub_value}, ...]
+
 
   The value type must be one of string, integer or atom. Default to itself.
 
